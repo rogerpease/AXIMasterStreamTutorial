@@ -62,6 +62,7 @@
 	);
 
         wire [31:0] startValueReg; 
+        wire [31:0] controlReg; 
 
 // Instantiation of Axi Bus Interface S00_AXI
 	AXIMasterStreamTutorial_Slave # ( 
@@ -69,6 +70,7 @@
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) AXIMasterStreamTutorial_Slave  ( 
                 .startValueReg(startValueReg),  
+                .controlReg(controlReg),  
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),
@@ -98,6 +100,7 @@
 		.C_M_START_COUNT(C_M00_AXIS_START_COUNT)
 	) AXIMasterStreamTutorialIP_MasterStream_inst ( 
                 .startValueReg (startValueReg),  
+                .controlReg    (controlReg),  
 		.M_AXIS_ACLK   (m00_axis_aclk),
 		.M_AXIS_ARESETN(m00_axis_aresetn),
 		.M_AXIS_TVALID (m00_axis_tvalid),

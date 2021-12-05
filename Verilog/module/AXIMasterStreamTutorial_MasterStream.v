@@ -15,6 +15,7 @@ module AXIMasterStreamTutorial_MasterStream #
 )
 (
 	// Users to add ports here
+	input [31:0] controlReg, 
 	input [31:0] startValueReg, 
 
 	// User ports ends
@@ -67,6 +68,8 @@ module AXIMasterStreamTutorial_MasterStream #
 	//The master has issued all the streaming data stored in FIFO
 	reg  	tx_done;
 
+        wire startNotStop; 
+        assign startNotStop = controlReg[0]; 
 
 	// I/O Connections assignments
 
@@ -89,12 +92,13 @@ module AXIMasterStreamTutorial_MasterStream #
             /* verilator lint_off CASEINCOMPLETE */ 
   	      case (mst_exec_state)
 	        IDLE:                                                               
-                 begin 
+                 if (!startNotStop)
+                   begin 
 	            mst_exec_state  <= SEND_STREAM;                              
                     read_pointer = 0; 
 	            stream_data_out = 0;
                     $display("IDLE"); 
- 	         end 
+   	           end 
    	        SEND_STREAM:                                                        
                  begin 
 	           if (tx_en)                                                      

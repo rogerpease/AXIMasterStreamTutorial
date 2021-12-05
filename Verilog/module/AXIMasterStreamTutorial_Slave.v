@@ -18,6 +18,7 @@
 
                 // SLAVE UPDATE 1: Add Ports to AXI Slave Module.  
 
+		output [31:0] controlReg,
 		output [31:0] startValueReg,
 
 		// User ports ends
@@ -412,7 +413,8 @@
 	end    
 
 	// Add user logic here
-	assign startValueReg = slv_reg0; 
+	assign controlReg    = slv_reg0; 
+	assign startValueReg = slv_reg1; 
 
 	// User logic ends
 
