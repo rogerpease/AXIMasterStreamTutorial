@@ -36,23 +36,26 @@ class AXIMasterStreamWrapperClass : VAXIMasterStreamTutorial_MasterStream
 
   void Run() 
   { 
-    for (int i = 0; i < 100; i++) 
+    for (int i = 0; i < 15; i++) 
     { 
       if (i%10 == 0) this->startValueReg += 256;
       ToggleClock(); 
       MasterBus->CaptureCycle(); 
-      cout << "Current: ";
-      for (auto a: MasterBus->StreamCurrentPacket) 
-         cout << hex << a << dec << " ";
-      cout << endl; 
-      cout << "Complete: "; 
-      for (auto a: MasterBus->StreamCompletePackets) 
-      {
-        for (auto b: a) 
-         cout << hex << b << dec << " ";
-        cout << endl; 
-      }
     } 
+    cout << "Current: ";
+    for (auto a: MasterBus->StreamCurrentPacket) 
+       cout << hex << a << dec << " ";
+    cout << endl; 
+    cout << "Complete: "; 
+    for (auto a: MasterBus->StreamCompletePackets) 
+    {
+      for (auto b: a) 
+       cout << hex << b << dec << " ";
+      cout << endl; 
+    }
+    assert(MasterBus->StreamCompletePackets[0][0] == 0x101);
+    assert(MasterBus->StreamCompletePackets[0][1] == 0x102);
+    assert(MasterBus->StreamCompletePackets[0][2] == 0x103);
   } 
 
 };
@@ -67,5 +70,6 @@ int main(int argc, char **argv)
    AXIMasterStreamWrapper.Reset();  
    AXIMasterStreamWrapper.Run();
    std::cout << "Test: ************************************** PASS!!!!  ************************************" <<std::endl;       
+   return 0; 
 
 }
