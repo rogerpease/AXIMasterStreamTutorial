@@ -32,6 +32,7 @@ class AXIMasterStreamWrapperClass : VAXIMasterStreamTutorial_MasterStream
      if (debug) printf("Clock Toggled\n"); 
     
   } 
+  
   void Reset() { this->M_AXIS_ARESETN = 0; ToggleClock(); ToggleClock(); this->M_AXIS_ARESETN = 1; ToggleClock(); } 
 
   void Run() 

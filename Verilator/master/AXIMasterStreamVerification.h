@@ -1,5 +1,6 @@
 #include <vector> 
 #include <iostream> 
+#include <sstream>
 using namespace std; 
 
 class AXIMasterStreamVerification
@@ -9,6 +10,7 @@ class AXIMasterStreamVerification
         AXIMasterStreamVerification();
         void CaptureCycle();
         void Initialize();
+        void ReportPipeStatus(ostringstream & ostream);
 
         bool DEBUG = false;
 

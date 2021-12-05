@@ -37,3 +37,19 @@ void AXIMasterStreamVerification::CaptureCycle()
    *(this->M_AXIS_TREADY) = (treadyDropPeriod == 0) ? 1 : (cycleCount % treadyDropPeriod == 0) ? 0 : 1; 
    cycleCount ++; 
 }  
+
+void AXIMasterStreamVerification::ReportPipeStatus(ostringstream & ostream)
+{
+     ostream << "Current: ";
+     for (auto a: this->StreamCurrentPacket)
+        ostream << hex << a << dec << " ";
+     ostream << endl;
+     ostream << "Complete: ";
+     for (auto a: this->StreamCompletePackets)
+     {
+       for (auto b: a)
+         ostream << hex << b << dec << " ";
+       ostream << endl;
+     }
+
+}
