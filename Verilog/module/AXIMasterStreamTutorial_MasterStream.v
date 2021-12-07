@@ -92,13 +92,14 @@ module AXIMasterStreamTutorial_MasterStream #
             /* verilator lint_off CASEINCOMPLETE */ 
   	      case (mst_exec_state)
 	        IDLE:                                                               
-                 if (!startNotStop)
+                 if (startNotStop)
                    begin 
 	            mst_exec_state  <= SEND_STREAM;                              
                     read_pointer = 0; 
 	            stream_data_out = 0;
                     $display("IDLE"); 
    	           end 
+                // Otherwise wait 
    	        SEND_STREAM:                                                        
                  begin 
 	           if (tx_en)                                                      
