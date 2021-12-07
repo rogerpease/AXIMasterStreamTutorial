@@ -18,8 +18,8 @@ In this case I took verilog from the AXI Peripherals and edited it to build a si
 There are three modules:
 
 * [TopLevelModule](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/module/AXIMasterStreamTutorialIP.v  "Top Level")
-* [SlaveStream](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorialIP_MasterStream.v) which generates an AXI stream. It takes a "startValue" and increments it 1..8 (i.e. putting 0xDECADE00 will produce 0xDECADE01 .. 0xDECADE08).
-* [RegisterFile](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorialIP_Slave.v) which interfaces to the CPU to set the start Value and control register. 
+* [MasterStream](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorial_MasterStream.v) which generates an AXI stream. It takes a "startValue" set in the register file and increments it 1..8 (i.e. putting 0xDECADE00 will produce 0xDECADE01 .. 0xDECADE08).
+* [RegisterFile](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorial_Slave.v) which interfaces to the CPU to set the start Value and control register. 
 
 There are Verilator scripts for my own testing purposes. 
 
@@ -61,15 +61,15 @@ These steps are captured for automation in the [RunPackageIP.py](http://github.c
 	1. You may need to hand draw a connection from axi_dma_0/M_AXIS_MM2S to AXIMasterStreamTutorial/slavestream.
 	1. It should look like this: !["Overlay Image"](pics/MasterFPGABlock.png) 
 1. Make sure:
-	1. The AXI Direct Memory Access M_AXIS_MM2S connects to the AXIMasterStreamTutorial IP slavestream interface. This is what writes the stream data.   
-	1. The AXI Slave Tutorial IP has all its resets and clocks connected. They can be connected to the other resets/clocks (respectively).  
+	1. The AXI Direct Memory Access S_AXIS_S2MM connects to the AXIMasterStreamTutorial IP m00_axis interface. This is how the stream data from the peripheral is routed back to the processor.
+	1. The AXI Master Tutorial IP has all its resets and clocks connected. They can be connected to the other resets/clocks (respectively).  
 	1. The AXI Interconnect axi_mem_interconn:
 		1. axi_dma_0/M_AXI_M2SS ties to axi_mem_interconn/S00_AXI
 		1. axi_mem_interconn/M00_AXI ties to the processing system/S_AXI_HP0.
-                1. This is how the DMA fetches processor memory to feed to the stream interface. If the S_AXI_HP0 interface is missing you missed the "S AXI HP0 interface" option or it was undone by the Block Automation.
+                1. This is how the DMA writes processor memory from data from the stream interface. If the S_AXI_HP0 interface is missing you missed the "S AXI HP0 interface" option or it was undone by the Block Automation.
 	1. The AXI Interconnect ps7_0_axi_periph:
      		1. There should be connections to both peripherals.  
-		1. This is how the CPU communicates with the peripherals (to configure/read registers/etc). 
+		1. This is how the CPU communicates with the peripherals (to read/write control and data registers). 
 1. Go to the "FPGA Image" sources area, right-click and select "Generate HDL Wrapper". The tool that makes the netlists can't read a Block Diagram. 
 	1. !["HDL Wrapper"](pics/CreateHDLWrapper.png) 
 1. Run "Flow Navigator"->"Generate Bitstream" and wait for the bitstream to generate. This may take 5 minutes or so. 
