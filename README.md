@@ -19,7 +19,7 @@ There are three modules:
 
 * [TopLevelModule](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/module/AXIMasterStreamTutorialIP.v  "Top Level")
 * [SlaveStream](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorialIP_MasterStream.v) which generates an AXI stream. It takes a "startValue" and increments it 1..8 (i.e. putting 0xDECADE00 will produce 0xDECADE01 .. 0xDECADE08).
-* [RegisterFile](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorialIP_Slave.v) which interfaces to the CPU to return summed results. 
+* [RegisterFile](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorialIP_Slave.v) which interfaces to the CPU to set the start Value and control register. 
 
 There are Verilator scripts for my own testing purposes. 
 
