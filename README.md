@@ -82,7 +82,7 @@ These steps are captured for automation in the **RunMakeImage.py** script.
 
 I normally upload to /home/xilinx/AXIMasterStreamTutorial on my TUL-2 board. 
 
-There is a [RecvStream.py](http://github.com/rogerpease/AXIMasterStreamTutorial/SendStream.py) script which will:
+There is a **RecvStream.py** script which will:
 1. Configure and set up module and DMA 
 1. Receive Data
 1. Reconfigure the start data value
