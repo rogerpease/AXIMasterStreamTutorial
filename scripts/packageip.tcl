@@ -12,5 +12,5 @@ ipx::check_integrity [ipx::current_core]
 ipx::save_core [ipx::current_core]
 ipx::move_temp_component_back -component [ipx::current_core]
 close_project -delete
-set_property  ip_repo_paths  ./ip_repo [current_project]
+#set_property  ip_repo_paths  ./ip_repo [current_project]
 update_ip_catalog
