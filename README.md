@@ -17,9 +17,9 @@ This tutorial is meant for Verilog programmers who want to use the Xilinx ZYNQ 7
 In this case I took verilog from the AXI Peripherals and edited it to build a simple counting interface. 
 There are three modules:
 
-* [TopLevelModule](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/module/AXIMasterStreamTutorialIP.v  "Top Level")
-* [MasterStream](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorial_MasterStream.v) which generates an AXI stream. It takes a "startValue" set in the register file and increments it 1..8 (i.e. putting 0xDECADE00 will produce 0xDECADE01 .. 0xDECADE08).
-* [RegisterFile](http://github.com/rogerpease/AXIMasterStreamTutorial/tree/main/Verilog/modules/AXIMasterStreamTutorial_Slave.v) which interfaces to the CPU to set the start Value and control register. 
+* [TopLevelModule](https://github.com/rogerpease/AXIMasterStreamTutorial/blob/master/Verilog/module/AXIMasterStreamTutorialIP.v)
+* [MasterStream](http://github.com/rogerpease/AXIMasterStreamTutorial/blob/master/Verilog/module/AXIMasterStreamTutorial_MasterStream.v) which generates an AXI stream. It takes a "startValue" set in the register file and increments it 1..8 (i.e. putting 0xDECADE00 will produce 0xDECADE01 .. 0xDECADE08).
+* [RegisterFile](http://github.com/rogerpease/AXIMasterStreamTutorial/blob/master/Verilog/module/AXIMasterStreamTutorial_Slave.v) which interfaces to the CPU to set the start Value and control register. 
 
 There are Verilator scripts for my own testing purposes. 
 
