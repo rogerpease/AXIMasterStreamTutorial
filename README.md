@@ -37,7 +37,7 @@ The simplest way to package the IP through the gui is:
 	1. Click "File Groups" in the Package IP window. !["Merge Changes from File Groups Wizard"](pics/MasterFileGroups.png) 
         1. Fill in the names of the IP and User and click "Review and Package"->'Package IP'. 
 
-These steps are captured for automation in the [RunPackageIP.py](http://github.com/rogerpease/AXIMasterStreamTutorial/blob/master/RunPackageIP.py) script.  
+These steps are captured for automation in the **RunPackageIP.py** script. 
 
 ### Step 3) Make an FPGA Image and instance the IP 
 
@@ -76,7 +76,7 @@ These steps are captured for automation in the [RunPackageIP.py](http://github.c
 
 You should find a bit file and hwh file in your directory (you may need to do a find for files ending in those extensions).
 
-These steps are captured for automation in the [RunMakeImage.py](http://github.com/rogerpease/AXIMasterStreamTutorial/blob/master/AXIMasterStreamTutorial/RunMakeImage.py) script.  
+These steps are captured for automation in the **RunMakeImage.py** script.  
 
 ### Step 4) Upload FPGA Image to your ZYNQ
 
@@ -89,4 +89,4 @@ There is a [RecvStream.py](http://github.com/rogerpease/AXIMasterStreamTutorial/
 1. Receive Data again 
 1. Compare data
 
-The copy steps are captured for automation in the [PushFiles.py](http://github.com/rogerpease/AXIMasterStreamTutorial/blob/master/PushFiles.py) script. Be sure to update the IP address of your board.   
+The copy steps are captured for automation in the **PushFiles.py** script. Be sure to update the IP address of your board.   
