@@ -34,15 +34,15 @@ The simplest way to package the IP through the gui is:
 1. Select the AXIMasterStreamTutorial directory and Click Next.
 1. Enter a project name and click next. 
 1. It should figure out the AXI interfaces and the hierarchy.  All you should need to do is:
-	1. Click "File Groups" in the Package IP window. !["Merge Changes from File Groups Wizard"](pics/MasterFileGroups.png) 
+	1. Click "File Groups" in the Package IP window and Merge the changes. 
         1. Fill in the names of the IP and User and click "Review and Package"->'Package IP'. 
+!["Merge Changes from File Groups Wizard"](pics/MasterFileGroups.png) 
 
 These steps are captured for automation in the **RunPackageIP.py** script. 
 
 ### Step 3) Make an FPGA Image and instance the IP 
 
-1. Start Vivado and Create a new RTL project (I call mine FPGAImageProject). 
-	- You don't need to add RTL source but be sure to select your board from the board/part menu.
+1. Start Vivado and Create a new RTL project (I call mine FPGAImageProject). You don't need to add RTL source but be sure to select your board from the board/part menu.
 1. Click "Project Manager"->"Settings"->"IP" and add your IP directory from the prior step as a IP Repository. It should find the IP even in a subdirectory.
 1. Click "Create Block Design" and make a new Block design.  
 1. Add the AXIMasterStreamTutorial directory as an IP Repository. It should find one directory.  
