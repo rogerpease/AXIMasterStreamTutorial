@@ -4,6 +4,9 @@
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
 # Start of session at: Sun Dec  5 13:23:11 2021
 # Process ID: 400777
+
+set_param board.repoPaths /home/rpease/.Xilinx/Vivado/2022.1/xhub/board_store/xilinx_board_store
+get_board_parts
 create_project FPGAImageProject ./FPGAImageProject -part xc7z020clg400-1
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
 set_property  ip_repo_paths  . [current_project]

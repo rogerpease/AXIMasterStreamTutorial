@@ -1,7 +1,7 @@
 #!/usr/bin/env python3 
 import os 
 
-MYPYNQBOARD="xilinx@192.168.1.128"
+MYPYNQBOARD="xilinx@10.0.0.151"
 PROJECTNAME="AXIMasterStreamTutorial"
 
 

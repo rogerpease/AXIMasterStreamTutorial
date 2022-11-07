@@ -10,9 +10,9 @@
 
 import os
 import subprocess 
-os.environ["LD_LIBRARY_PATH"] = "/tools/Xilinx/.xinstall/Vivado_2021.1/lib/lnx64.o:/tools/Xilinx/Vivado/2021.1/lib/lnx64.o:/tools/Xilinx/.xinstall/Vivado_2021.1/lib/lnx64.o/SuSE/"
+os.environ["LD_LIBRARY_PATH"] = "/tools/Xilinx/.xinstall/Vivado_2022.1/lib/lnx64.o:/tools/Xilinx/Vivado/2022.1/lib/lnx64.o:/tools/Xilinx/.xinstall/Vivado_2022.1/lib/lnx64.o/SuSE/"
 
-VIVADO_BIN="/tools/Xilinx/Vivado/2021.1/bin"
+VIVADO_BIN="/tools/Xilinx/Vivado/2022.1/bin"
 
 def Run(commandString):
   print("Running: "," ".join(commandString))
