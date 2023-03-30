@@ -1,4 +1,10 @@
 #!/usr/bin/env python3 
+import sys
+import os
+
+os.environ["XILINX_XRT"] = "/usr"
+sys.path.append('/usr/local/share/pynq-venv/lib/python3.10/site-packages')
+
 
 from pynq import Overlay
 from pynq import allocate

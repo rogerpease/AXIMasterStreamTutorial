@@ -1,6 +1,9 @@
 #!/usr/bin/env python3 
+#
+#
+#
+#
 import os 
-
 MYPYNQBOARD="xilinx@10.0.0.151"
 PROJECTNAME="AXIMasterStreamTutorial"
 
